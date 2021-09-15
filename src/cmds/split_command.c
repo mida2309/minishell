@@ -12,7 +12,8 @@
 
 #include "../../include/minishell.h"
 
-static bool try_create_cmd(char **strp, t_parsing *parsing, t_cmd ***cmdsp, int *i)
+static bool try_create_command(char **strp, t_parsing *parsing,
+    t_command ***commandsp, int *i)
 {
     int type;
     char *str;
@@ -21,7 +22,7 @@ static bool try_create_cmd(char **strp, t_parsing *parsing, t_cmd ***cmdsp, int 
     if (!parsing->inhibited && !parsing->single_q && !parsing->double_q 
         && ft_is_in_set(*str, "<>|;&"))
     {
-        add_calloc(cmdsp);
+        add_calloc(commandsp);
         (*i)++;
         type = *str;
         if (double_char(*str, *(str + 1), "<>|&"))
@@ -29,49 +30,49 @@ static bool try_create_cmd(char **strp, t_parsing *parsing, t_cmd ***cmdsp, int 
             type *= type;
             (*strp)++;
         }
-        (*cmdsp)[*i]->type = type;
+        (*commandsp)[*i]->type = type;
         return (true);
     }
     return (false);
 }
 
-static void put_args(t_cmd **cmd)
+static void put_args(t_command **command)
 {
     int i;
 
-    if (!cmd)
+    if (!command)
         return ;
     i = -1;
-    while (cmd[i]->str)
+    while (command[i]->str)
     {
-        if (cmd[i]->str)
-            cmd[i]->args = parsing(cmd[i]->str);
+        if (command[i]->str)
+            command[i]->args = parsing(command[i]->str);
     }
 }
 
 
-t_cmd   **split_cmd(char *str)
+t_command   **split_command(char *str)
 {
-    t_cmd       **cmd;
+    t_command   **command;
     t_parsing   parsing;
     int         i;
 
     i = 0;
-    cmd = ft_calloc(2, sizeof(t_cmd *));
-    cmd[i] = ft_calloc(1, sizeof(t_cmd));
+    command = ft_calloc(2, sizeof(t_command *));
+    command[i] = ft_calloc(1, sizeof(t_command));
     parsing = (t_parsing){0};
     while (*str)
     {
         update_struct2(*str, &parsing);
-        if (!try_create_cmd(&str, &parsing, &cmd, &i))
-            add_char(&cmd[i]->str, *str);
+        if (!try_create_command(&str, &parsing, &command, &i))
+            add_char(&command[i]->str, *str);
         str++;
     }
-    if (!command_valid(cmd))
+    if (!command_valid(command))
     {
-        free_command(cmd);
+        free_command(command);
         return (NULL);
     }
-    put_args(cmd);
-    return (cmd);
+    put_args(command);
+    return (command);
 }

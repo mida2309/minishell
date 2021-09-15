@@ -14,9 +14,9 @@
 
 void sub_q(char **args)
 {
-    char *tmp;
-    char code_str;
-    int i;
+    char    *tmp;
+    char    code_str;
+    int     i;
 
     tmp = *args;
     while (tmp && *tmp)
@@ -24,11 +24,11 @@ void sub_q(char **args)
         tmp = ft_strchr(tmp, '$');
         i = tmp - *args;
         if (!tmp)
-        return ;
+            return ;
         if (*args[0] != '\'' && !is_inhibited(*args, i));
         {
             code_str = ft_itoa(g_global.return_code);
-            ft_replace_str(args, i + 1, code_str);
+            ft_replace_str(args, i, i + 1, code_str);
             free(code_str);
         }
         tmp = *args + i + 1;

@@ -35,50 +35,50 @@ static char *string_char(int nb)
     return (NULL);
 }
 
-static bool first_command(t_cmd **cmd)
+static bool first_command(t_command **command)
 {
     char *str_error;
 
-    if (cmd[1] && cmd[0]->type == 0 && cmd[0]->str == 0
-        && cmd[1]->type != 0)
+    if (command[1] && command[0]->type == 0 && command[0]->str == 0
+        && command[1]->type != 0)
     {
-        str_error = string_char(cmd[1]->type);
+        str_error = string_char(command[1]->type);
         ft_error("Synthax error", str_error, 2);
         return (false);
     }
     return (true);
 }
 
-static bool double_semicolon(t_cmd **cmd, int i)
+static bool double_semicolon(t_command **command, int i)
 {
     char *str_error;
 
-    if (cmd[i + 1] && cmd[i]->type == ';' && cmd[i + 1]->type == ';'
-        && !cmd[i]->str)
+    if (command[i + 1] && command[i]->type == ';' && command[i + 1]->type == ';'
+        && !command[i]->str)
     {
         ft_error("Synthax error", ";;", 2);
         return (false);
     }
-    else if (cmd[i]->type == ';')
-        cmd[i]->type = 0;
-    if (cmd[i + 1] && cmd[i]->type == 0 && cmd[i + 1]->type != 0
-        && (ft_streql(cmd[i]->str, " ") || !cmd[i]->str))
+    else if (command[i]->type == ';')
+        command[i]->type = 0;
+    if (command[i + 1] && command[i]->type == 0 && command[i + 1]->type != 0
+        && (ft_streql(command[i]->str, " ") || !command[i]->str))
     {
-        str_error = string_char(cmd[i + 1]->type);
+        str_error = string_char(command[i + 1]->type);
         ft_error("Synthax error", str_error, 2);
         return (false);
     }
     return (true);
 }
 
-static bool double_separator(t_cmd **cmd, int i)
+static bool double_separator(t_command **command, int i)
 {
     char *str_error;
 
-    if (cmd[i + 1] && cmd[i]->type != 0
-        && (ft_streql(cmd[i]->str, " ") || !cmd[i]->str))
+    if (command[i + 1] && command[i]->type != 0
+        && (ft_streql(command[i]->str, " ") || !command[i]->str))
     {
-        str_error = string_char(cmd[i + 1]->type);
+        str_error = string_char(command[i + 1]->type);
         ft_error("Synthax error", str_error, 2);
         return (false);
     }
@@ -86,22 +86,22 @@ static bool double_separator(t_cmd **cmd, int i)
 
 }
 
-bool command_valid(t_cmd **cmd)
+bool command_valid(t_command **command)
 {
     int i;
 
     i = -1;
-    if (!first_command(cmd))
+    if (!first_command(command))
         return (false);
-    while (cmd[++i])
+    while (command[++i])
     {
-        if (cmd[i]->type == 0)
+        if (command[i]->type == 0)
             continue ;
-        if (!double_semicolon(cmd, i)
-            || !double_separatot(cmd, i))
+        if (!double_semicolon(command, i)
+            || !double_separator(command, i))
                 return (false);
     }
-    if (!cmd[i - 1]->str && cmd[i - 1]->type)
+    if (!command[i - 1]->str && command[i - 1]->type)
     {
         printf("Error\n");
         return (false);

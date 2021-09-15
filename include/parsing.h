@@ -17,17 +17,6 @@
 # include <stdbool.h>
  //parsing
 
-typedef struct s_parsing
-{
-	bool	inhibited;
-	bool	single_q;
-	bool	double_q;
-	bool	sp;
-	bool	is_inhiber;
-	bool	is_simple;
-	bool	is_double;
-}	t_parsing;
- 
 char	**parsing(char *str);
 bool	ft_valid(char *str);
 void	update_struct(char c, t_parsing *parsing);
@@ -36,7 +25,7 @@ void    type_args(char **args, const char *set);
 bool	is_inhibited(const char *str, int char_index);
 int     count_args(char *str);
 void 	remove_quote(char **args);
-void    remove_blackslash(char **args);
+void    remove_backslash(char **args);
 void	ft_replace_str(char **args, unsigned int start_index, unsigned int end_index, char *value);
 void 	split_args(char **args, char *str);
 void	add_char(char **str, char c);
@@ -48,25 +37,22 @@ void    sub_tilde(char **args);
 
 //command
 
-typedef struct s_cmd
-{
-	int end;
-	int type;
-	char *str;
-	char **args;
-
-} t_cmd;
-
-
-bool 	command_valid(t_cmd **cmd);
-void    add_calloc(t_cmd ***cmdsp);
+bool 	command_valid(t_command **command);
+void    add_calloc(t_command ***commandsp);
 bool    double_char(char c, char next_c, char *set);
-void    free_command(t_cmd **cmd);
+void    free_command(t_command **command);
 bool 	ft_is_in_set(char c, const char *set);
-t_cmd   **split_cmd(char *str);
+t_command  **split_command(char *str);
 
-// redirection 
+//redirection 
 
-
-
+bool 	is_simple(t_command **command, int *j);
+void   	try_command(t_command **command);
+void    multi_pipe(t_command **command, int *i, int icommand, int jcommand);
+void 	update_env(char *env, char *new_value);
+void 	single_left_chevron(t_command *command1, t_command *command_file);
+void    double_left_chevron(t_command *command1, t_command *end_keyword);
+void    double_left_chevron(t_command *command1, t_command *end_keyword);
+void    ft_pipe(t_command *command1, t_command *command2);
+void    single_right_chevron(t_command *command1, t_command *command_file);
 #endif

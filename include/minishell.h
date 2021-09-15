@@ -18,7 +18,9 @@
 # define PIPE_PIPE '|' * '|'
 # define AND_AND '&' * '&'
 
-t_global	g_global;
+
+
+
 
 void    print_working_directory(t_command *cmd);
 

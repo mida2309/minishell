@@ -23,7 +23,7 @@ bool ft_valid(char *str)
         update_struct(*str, &parsing);
         str++;
     }
-    return (!parsing.double_q && !parsing.single_q && !parsing.inhibited)
+    return (!parsing.double_q && !parsing.single_q && !parsing.inhibited);
 }
 
 int     count_args(char *str)
@@ -48,8 +48,6 @@ int     count_args(char *str)
     }
     return (1);
 }
-
-
 
 char    **parsing(char *str)
 {

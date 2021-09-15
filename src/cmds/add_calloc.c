@@ -12,21 +12,21 @@
 
 #include "../../include/minishell.h"
 
-void    add_calloc(t_cmd ***cmdsp)
+void    add_calloc(t_command ***commandsp)
 {
-    int     count;
-    t_cmd   **tmp;
-    t_cmd   **cmd;
+    int         count;
+    t_command   **tmp;
+    t_command   **command;
 
-    cmd = *cmdsp;
+    command = *commandsp;
     count = -1;
-    while (cmd[++count])
+    while (command[++count])
         ;
-    tmp = ft_calloc(count + 2, sizeof(t_cmd *));
+    tmp = ft_calloc(count + 2, sizeof(t_command *));
     count = -1;
-    while (cmd[++count])
-        tmp[count] = cmd[count];
-    tmp[count] = ft_calloc(1, sizeof(t_cmd));
-    free(cmd);
-    *cmdsp = tmp;
+    while (command[++count])
+        tmp[count] = command[count];
+    tmp[count] = ft_calloc(1, sizeof(t_command));
+    free(command);
+    *commandsp = tmp;
 }

@@ -12,7 +12,7 @@
 
 #include "../../include/minishell.h"
 
-void    remove_blackslash(char **args)
+void    remove_backslash(char **args)
 {
     int i;
     int j;
@@ -57,10 +57,10 @@ static bool to_skip(char c, char next_c, t_parsing *parsing)
 
 void remove_quote(char **args)
 {
-    t_parsing parsing;
-    int i;
-    int j;
-    char *tmp;
+    t_parsing   parsing;
+    int         i;
+    int         j;
+    char        *tmp;
 
     parsing = (t_parsing){0};
     tmp = ft_calloc(sizeof(char), ft_strlen(*args) + 1);
@@ -68,7 +68,7 @@ void remove_quote(char **args)
     j = 0;
     while ((*args)[++i] != 0)
     {
-        update_struc2((*args)[i], &parsing);
+        update_struct2((*args)[i], &parsing);
         if (to_skip((*args)[i], (*args)[i + 1], &parsing))
             continue ;
         tmp[j++] = (*args)[i];

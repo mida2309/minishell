@@ -1,46 +1,47 @@
-LIBFT = -L./libft/
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: idamouttou <idamouttou@student.42.fr>      +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2021/10/04 23:31:12 by idamouttou        #+#    #+#              #
+#    Updated: 2021/10/04 23:31:22 by idamouttou       ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-LINK = -lft -lreadline
-
-FLAGS = -g -fsanitize=address -Wall -Wextra -Werror 
-
-CC = gcc -I./include/
-
-RM = rm -f
-
-NAME = minishell
-
-SRC = 	./src/main.c\
-		./src/built-ins/pwd.c\
-		./src/args/is_inhibited.c ./src/args/parse.c\
-		./src/args/remove_backslash_and_quote.c\
-		./src/args/replace_str.c ./src/args/split_args.c\
-		./src/args/sub_env.c ./src/args/sub_q.c ./src/args/sub_tilde.c\
-		./src/args/type_args.c ./src/args/update.c\
-		./src/cmds/add_calloc.c ./src/cmds/command_valid.c ./src/cmds/double_char.c\
-		./src/cmds/free_command.c ./src/cmds/ft_is_in_set.c ./src/cmds/split_command.c\
-		./src/redirection/double_left_chevron.c ./src/redirectiondouble_right_chevron\
-		./src/redirection/is_simple.c ./src/redirection/multi_pipe.c ./src/redirection/redirection.c\
-		./src/redirection/single_left_chevron.c ./src/redirection/single_right_chevron.c\
-		./src/redirection/try_exec.c ./src/redirection/update_env.c\
-		./src/utils/utils.c ./src/utils/error.c ./src/utils/redirection_utils.c ./src/utils/redirection_utils2.c\
-
-OBJ = $(SRC:.c=.o)
+NAME		=	minishell
+CC			= gcc
+CFLAGS		= -g -Wall -Wextra -Werror	
+SRCS		=	srcs/main.c \
+				srcs/build/cd.c srcs/build/echo.c srcs/build/env.c srcs/build/exit.c \
+				srcs/build/export.c srcs/build/pwd.c srcs/build/unset.c \
+				srcs/excution/exec_coms.c srcs/excution/exec_pipe.c srcs/excution/exec_redir.c \
+				srcs/excution/find_exec.c \
+				srcs/parsing/converter.c srcs/parsing/parser.c srcs/parsing/sig_handlers.c srcs/parsing/token_to_ast.c \
+				srcs/utils/env_utils.c srcs/utils/exec_coms_utils.c srcs/utils/list_utils.c srcs/utils/parser_utils.c srcs/utils/main_utils.c
+OBJS 		=	$(addprefix ${SRCS_DIR}, ${SRCS:.c=.o})
+deps 		= 	$(patsubst %.o,%.d,$(OBJS))
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	make -C ./libft
-	$(CC) -o $(NAME) $(OBJ) $(FLAGS) $(LIBFT) $(LINK)
+$(NAME): $(OBJS)
+		cd Libft/ && make && make bonus && make clean
+		gcc $(CFLAGS) $(OBJS)  -o $(NAME) -lreadline -L/usr/local/opt/readline/lib -I/usr/local/opt/readline/include -LLibft/ -lft -L.
+-include $(deps)
 
+DEPSFLAGS 	= -MMD -MF $(@:.c=.d)
+
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< $(DEPSFLAGS) -o $(<:.c=.o)
 clean:
-	-@echo "Removing object files..."
-	make clean -C ./libft
-	$(RM) $(OBJ)
+	rm -f $(OBJS)
+	
 
-fclean : clean
-	-@echo "Removing executive file..."
-	make fclean -C ./libft
-	$(RM) $(NAME)
+fclean: clean 
+	rm -f $(NAME)
+	cd Libft/ && make fclean
 
-re : fclean all
+re: fclean all
+
+.PHONY: all, clean, fclean, re

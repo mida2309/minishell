@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sunhkim <sunhkim@student.42seoul.k>        +#+  +:+       +#+        */
+/*   By: idamouttou <idamouttou@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/25 18:55:07 by sunhkim           #+#    #+#             */
-/*   Updated: 2020/12/27 16:57:11 by sunhkim          ###   ########.fr       */
+/*   Created: 2021/10/04 23:21:36 by idamouttou        #+#    #+#             */
+/*   Updated: 2021/10/04 23:26:55 by idamouttou       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

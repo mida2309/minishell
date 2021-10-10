@@ -1,20 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: idamouttou <idamouttou@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/04 23:17:25 by idamouttou        #+#    #+#             */
-/*   Updated: 2021/10/04 23:27:21 by idamouttou       ###   ########.fr       */
+/*   Created: 2021/10/04 23:23:03 by idamouttou        #+#    #+#             */
+/*   Updated: 2021/10/04 23:26:45 by idamouttou       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalpha(int c)
+size_t
+	ft_strlcpy(char const *dst, char const *src, size_t dstsize)
 {
-	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
-		return (1);
-	return (0);
+	char			*cpy_dst;
+	const char		*s;
+	size_t			n;
+
+	s = src;
+	cpy_dst = (char *)dst;
+	n = dstsize;
+	if (n != 0)
+		while (--n && *s != '\0')
+			*cpy_dst++ = *s++;
+	if (n == 0)
+	{
+		if (dstsize != 0)
+			*cpy_dst = '\0';
+		while (*s++)
+			;
+	}
+	return (s - src - 1);
 }

@@ -6,7 +6,7 @@
 #    By: idamouttou <idamouttou@student.42.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/04 23:31:12 by idamouttou        #+#    #+#              #
-#    Updated: 2021/10/04 23:31:22 by idamouttou       ###   ########.fr        #
+#    Updated: 2021/10/11 22:17:43 by idamouttou       ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 		cd Libft/ && make && make bonus && make clean
-		gcc $(CFLAGS) $(OBJS)  -o $(NAME) -lreadline -L/usr/local/opt/readline/lib -I/usr/local/opt/readline/include -LLibft/ -lft -L.
+		gcc $(CFLAGS) $(OBJS)  -o $(NAME) -lreadline -L/usr/local/opt/readline/lib -I/usr/local/opt/readline/include -LLibft/ -lft -L. #-lreadline -L/Users/${USER}/.brew/Cellar/readline/8.1/lib/ -I/Users/${USER}/.brew/Cellar/readline/8.1/include-LLibft/ -LLibft/ -lft -L.
 -include $(deps)
 
 DEPSFLAGS 	= -MMD -MF $(@:.c=.d)

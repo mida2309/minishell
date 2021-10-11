@@ -6,7 +6,7 @@
 /*   By: idamouttou <idamouttou@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 23:24:20 by idamouttou        #+#    #+#             */
-/*   Updated: 2021/10/04 23:26:31 by idamouttou       ###   ########.fr       */
+/*   Updated: 2021/10/11 14:55:14 by mida             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,6 @@ char			*ft_strrchr(const char *s, int c);
 char			*ft_strnstr(const char *big, const char *little, size_t len);
 int				ft_strncmp(const char *s1, const char *s2, size_t n);
 void			*ft_calloc(size_t nmemb, size_t size);
-int 			ft_isprint_no_equal(int c);
+int				ft_isprint_no_equal(int c);
 int				ft_strcmp(const char *s1, const char *s2);
 #endif

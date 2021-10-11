@@ -6,7 +6,7 @@
 /*   By: idamouttou <idamouttou@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 23:30:25 by idamouttou        #+#    #+#             */
-/*   Updated: 2021/10/04 23:31:30 by idamouttou       ###   ########.fr       */
+/*   Updated: 2021/10/11 15:07:11 by mida             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,15 @@ char	*replace_one(char *input, char *ptr, t_list *envlist, int dquot)
 	char	*second;
 
 	before = ft_substr(input, 0, ptr - input);
-	after_env = get_after_env(ptr);//env argument ? '' "" > < 0 return after env
-	env_val = env_val_name(input, ptr, after_env, envlist);// env $=argument sort la liste ou env ?= sort la liste
+	after_env = get_after_env(ptr);
+	//env argument ? '' "" > < 0 return after env
+	env_val = env_val_name(input, ptr, after_env, envlist);
+	// env $=argument sort la liste ou env ?= sort la liste
 	first = ft_strjoin(before, env_val);
 	after_env = ft_strdup(after_env);
-	second = replace_envs(after_env, envlist, dquot);//check les double quote et si env ?=<salut sort la liste mais si env ?=>salut saut a la ligne
+	second = replace_envs(after_env, envlist, dquot);
+	//check les double quote et si env ?=<salut sort la 
+	//liste mais si env ?=>salut saut a la ligne
 	if (input)
 		free(input);
 	input = ft_strjoin(first, second);
@@ -36,8 +40,10 @@ char	*replace_one(char *input, char *ptr, t_list *envlist, int dquot)
 	free(before);
 	return (input);
 }
+
 //check les quote apres la command env
 //si < sort la liste > saut a la ligne 
+
 char	*replace_envs(char *input, t_list *envlist, int dquot)
 {
 	char	*ptr;
@@ -63,7 +69,9 @@ char	*replace_envs(char *input, t_list *envlist, int dquot)
 	}
 	return (input);
 }
+
 //alloue la memoire et check si les argument existe
+
 char	*add_token(char ***arr_tokens, char *input, char *start, char *end)
 {
 	char	*res;
@@ -73,14 +81,19 @@ char	*add_token(char ***arr_tokens, char *input, char *start, char *end)
 	free(res);
 	return (end + 1);
 }
+
 //retour char de caractere sring
+
 char	*skip_char(char *str, char sym)
 {
 	while (*str == sym)
 		str++;
 	return (str);
 }
-//skip la chaine de caractere check la memoire et alloue et check les error de command
+
+//skip la chaine de caractere check la memoire 
+//et alloue et check les error de command
+
 char	*split_to_tokens(char *input, char ***arr_tokens)
 {
 	char	*start_of_token;

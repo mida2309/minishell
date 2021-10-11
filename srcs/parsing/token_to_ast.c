@@ -6,7 +6,7 @@
 /*   By: idamouttou <idamouttou@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 23:30:35 by idamouttou        #+#    #+#             */
-/*   Updated: 2021/10/04 23:31:27 by idamouttou       ###   ########.fr       */
+/*   Updated: 2021/10/11 15:07:58 by mida             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,11 @@ t_ast	*add_node(t_ast *tree, t_ast *node)
 		res = add_to_redir_pipe(res, node);
 	return (res);
 }
-//permet de retire les espace avant ou apres dans une chaine de caracter suaf en presences des quote 
+
+//permet de retire les espace avant ou 
+//apres dans une chaine de caracter suaf en presences des quote 
 //retourn line
+
 char	*ft_quottrim(char *line)
 {
 	ssize_t	*utils;
@@ -87,10 +90,12 @@ char	*ft_quottrim(char *line)
 	free(utils);
 	return (line);
 }
+
 //creation du noyau renvoie vers la redirection
 //check les rediction >< >><<
 //check pipe exuction 
 //command exuction 
+
 t_ast	*create_node(char *token)
 {
 	t_ast	*res;	
@@ -119,7 +124,9 @@ t_ast	*create_node(char *token)
 	res->right = NULL;
 	return (res);
 }
+
 //creation du noyau redirection check pipe
+
 t_ast	*generate_ast(char **tokens)
 {
 	t_ast	*res;

@@ -6,13 +6,15 @@
 /*   By: idamouttou <idamouttou@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 23:30:30 by idamouttou        #+#    #+#             */
-/*   Updated: 2021/10/04 23:31:28 by idamouttou       ###   ########.fr       */
+/*   Updated: 2021/10/11 15:07:25 by mida             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "../../includes/minishell.h"
+
 //ctrl+c saut a la ligne
+
 void	signal_handler(int signo)
 {
 	if (signo == SIGINT)

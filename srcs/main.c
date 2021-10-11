@@ -11,7 +11,9 @@
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
+
 //check les quote impair pair sort une eror
+
 int	check_quotes(char *str)
 {
 	if (!str)
@@ -50,8 +52,10 @@ char	**free_arr(char **arr)
 	free(arr);
 	return (NULL);
 }
+
 //appel exit
 //appel parsing
+
 void	main_cycle(char *str, char **temp, t_list *envlist, t_ast *ast)
 {
 	while (1) //toujours vrai

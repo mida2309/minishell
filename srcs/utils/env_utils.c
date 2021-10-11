@@ -6,7 +6,7 @@
 /*   By: idamouttou <idamouttou@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 23:30:40 by idamouttou        #+#    #+#             */
-/*   Updated: 2021/10/04 23:31:27 by idamouttou       ###   ########.fr       */
+/*   Updated: 2021/10/11 15:10:01 by mida             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ char	*get_env_val(char *env_name, t_list *envlist)
 		ptr = ptr->next;
 	}
 	return ("\0");
-	
 }
 
 int	find_symbol(char *str, char sym)
@@ -54,8 +53,11 @@ int	find_symbol(char *str, char sym)
 		return (-1);
 	return (res);
 }
-//check le = si pas de = sort le liste de varibla oblige de  mettre declare x sinon lors
+
+//check le = si pas de = sort le liste de 
+//varibla oblige de  mettre declare x sinon lors
 //lajout dune nouvelle variable pb
+
 void	print_all_sorted(t_list *sorted)
 {
 	int	i;
@@ -70,10 +72,12 @@ void	print_all_sorted(t_list *sorted)
 		sorted = sorted->next;
 	}
 }
+
 //lstnew malloc content
 //ajout new env
 //check export avec ou sans argument
 //free export
+
 void	print_sorted(t_list *env)
 {
 	t_list	*sorted;

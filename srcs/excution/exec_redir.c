@@ -6,12 +6,15 @@
 /*   By: idamouttou <idamouttou@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 23:30:11 by idamouttou        #+#    #+#             */
-/*   Updated: 2021/10/04 23:31:32 by idamouttou       ###   ########.fr       */
+/*   Updated: 2021/10/11 15:03:56 by mida             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
-//echo test2 >> text.txt rajoute a la fin du fichier le nouveau argument 
+
+//echo test2 >> text.txt rajoute a la fin 
+//du fichier le nouveau argument 
+
 void	two_right_exec(t_ast *self)
 {
 	int	redir_fd;
@@ -23,7 +26,9 @@ void	two_right_exec(t_ast *self)
 	close (redir_fd);
 }
 
-//echo test > ida cree un fichier txt et ecrit test si dans le meme fichier ecrase lancien parametre
+//echo test > ida cree un fichier txt et ecrit 
+//test si dans le meme fichier ecrase lancien parametre
+
 void	one_right_exec(t_ast *self)
 {
 	int	redir_fd;
@@ -34,7 +39,10 @@ void	one_right_exec(t_ast *self)
 	dup2(redir_fd, 1);
 	close(redir_fd);
 }
-// echo test < ida cree le fichier txt et ecrit le parametre et affiche le texte et ecrase aussi ancien parametre
+
+// echo test < ida cree le fichier txt et ecrit le 
+// parametre et affiche le texte et ecrase aussi ancien parametre
+
 void	one_left_exec(t_ast *self)
 {
 	int	redir_fd;
@@ -52,6 +60,7 @@ void	one_left_exec(t_ast *self)
 // cat << ida "mon nom est $USER" arret = ida affiche mon nom est idamouttou
 // echo << ida $USER ida affiche idamouttou dasn herdoc
 //handle two pour ex "cat" << ida
+
 void	two_left_exec(t_ast *self, t_list *envlist)
 {
 	int		redir_fd;
@@ -75,7 +84,9 @@ void	two_left_exec(t_ast *self, t_list *envlist)
 	dup2(redir_fd, 0);
 	close (redir_fd);
 }
+
 //appel des differente redirection 
+
 void	redir_exec(t_ast	*self, t_list *envlist)
 {
 	if (ft_strcmp(self->token, ">") == 0)

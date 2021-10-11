@@ -6,7 +6,7 @@
 /*   By: idamouttou <idamouttou@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 23:30:59 by idamouttou        #+#    #+#             */
-/*   Updated: 2021/10/04 23:31:24 by idamouttou       ###   ########.fr       */
+/*   Updated: 2021/10/11 15:13:09 by mida             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ char	*insert_env(char *input, char *before, char *env_val, char *after)
 }
 
 //cherche dabord les argument apres env si cest pas ? '' "" > < 0 cherche pour $
+
 char	*env_val_name(char *input, char *ptr, char *after_env, t_list *envlist)
 {
 	char	*env_val;
@@ -58,12 +59,14 @@ char	*env_val_name(char *input, char *ptr, char *after_env, t_list *envlist)
 		env_val = ft_strdup("$");
 	return (env_val);
 }
+
 //argument apres commande env 
 //env ?s = sort la liste
 //env > = saute une ligne (> avec un argument sinon error)
 // env ' ou " = error quote
 // env '' ou "" = list avec ou sans argument sauf pour ''
 // 0 = affiche la list
+
 char	*get_after_env(char *ptr)
 {
 	char	*after_env;

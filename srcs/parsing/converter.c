@@ -6,12 +6,14 @@
 /*   By: idamouttou <idamouttou@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 23:30:21 by idamouttou        #+#    #+#             */
-/*   Updated: 2021/10/04 23:31:31 by idamouttou       ###   ########.fr       */
+/*   Updated: 2021/10/11 15:05:08 by mida             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
+
 //list ajout arriere ajout la fin malloc content return res
+
 t_list	*converter(char **envp)
 {
 	int		i;

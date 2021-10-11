@@ -6,7 +6,7 @@
 /*   By: idamouttou <idamouttou@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 23:30:53 by idamouttou        #+#    #+#             */
-/*   Updated: 2021/10/05 02:21:49 by idamouttou       ###   ########.fr       */
+/*   Updated: 2021/10/11 15:12:32 by mida             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,11 @@ int	check_ast(t_ast *tree)
 		return (0);
 	if (!check_ast(tree->left))
 		return (0);
-	return (1); 
+	return (1);
 }
+
 //
+
 void	exec_ast(t_ast *tree, t_list *envlist)
 {
 	int	orig_fd[2];
@@ -69,7 +71,8 @@ void	free_ast(t_ast *ast)
 }
 
 //"cat" << ida une fois termine affiche le cat si pas de "" naffiche rien 
-//"echo" << ida une fois termine saut al line \n et affiche rien meme dans le herdoc
+//"echo" << ida une fois termine saut 
+//al line \n et affiche rien meme dans le herdoc
 
 char	*handle_two_left(char *str, int redir_fd, t_list *envlist)
 {
@@ -87,4 +90,3 @@ char	*handle_two_left(char *str, int redir_fd, t_list *envlist)
 	free(str);
 	return (NULL);
 }
-

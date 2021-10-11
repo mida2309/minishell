@@ -6,7 +6,7 @@
 /*   By: idamouttou <idamouttou@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 23:30:44 by idamouttou        #+#    #+#             */
-/*   Updated: 2021/10/04 23:31:26 by idamouttou       ###   ########.fr       */
+/*   Updated: 2021/10/11 15:10:54 by mida             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	error_exit(void)
 {
-	if (errno == 2 || errno ==14)
+	if (errno == 2 || errno == 14)
 	{
 		if (errno == 2)
 			ft_putstr_fd("No such file or directory\n", 2);
@@ -37,7 +37,9 @@ void	check_signal(int value)
 		g_excd_sig.excode = value;
 	}
 }
+
 //file commence pas .
+
 char	*handle_relative_case(char *fname, t_list *envlist)
 {
 	char	*slash;
@@ -53,9 +55,11 @@ char	*handle_relative_case(char *fname, t_list *envlist)
 	chdir(get_env_val("PWD", envlist));
 	return (ft_strjoin(res, slash));
 }
+
 //check A->Z
 //check les nom des command
 // excute chaque commande en fonction du nom
+
 void	exec_builtin(char *name, char **args, t_list *envlist)
 {
 	int	i;
@@ -81,11 +85,13 @@ void	exec_builtin(char *name, char **args, t_list *envlist)
 	if (ft_strcmp("exit", name) == 0)
 		g_excd_sig.excode = my_exit(args);
 }
+
 // si cd / cherche le repertoire
 //check taille de array
 // cas particulier avce les fichier .file
 // 	signal(SIGQUIT, SIG_DFL); quit le programmme
 //cree le file cherche le nom du file 
+
 int	my_execve(char *file, char **args, t_list *envlist)
 {
 	char	*path;

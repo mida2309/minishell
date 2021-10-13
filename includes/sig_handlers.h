@@ -6,7 +6,7 @@
 /*   By: idamouttou <idamouttou@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 23:26:17 by idamouttou        #+#    #+#             */
-/*   Updated: 2021/10/04 23:26:22 by idamouttou       ###   ########.fr       */
+/*   Updated: 2021/10/14 00:04:08 by idamouttou       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,5 +17,5 @@
 void	proc_signal_handler(int signum);
 void	signal_handler(int signo);
 void	handle_sigquit(void);
-void	handle_sigint(int sig);
+//void	handle_sigint(int sig);
 #endif

@@ -6,7 +6,7 @@
 /*   By: idamouttou <idamouttou@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 23:29:10 by idamouttou        #+#    #+#             */
-/*   Updated: 2021/10/11 14:57:44 by mida             ###   ########.fr       */
+/*   Updated: 2021/10/06 01:39:44 by idamouttou       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ void	change_var(t_list *envlist, char *newvar, char *varname)
 	}
 }
 //si pas de dossier error
-
 int	handle_inval_cd(char *path, char *oldpwd)
 {
 	write(2, "cd: no such file or directory: ", 32);
@@ -57,7 +56,6 @@ int	handle_inval_cd(char *path, char *oldpwd)
 //chdir change le repertoire courant
 //change dadrresse de repertoire
 //nouveau pwd
-
 int	my_cd(char **path, t_list *envlist)
 {
 	int		ch;

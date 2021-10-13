@@ -6,10 +6,11 @@
 /*   By: idamouttou <idamouttou@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 23:29:50 by idamouttou        #+#    #+#             */
-/*   Updated: 2021/10/04 23:31:39 by idamouttou       ###   ########.fr       */
+/*   Updated: 2021/10/05 16:03:16 by idamouttou       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+//strerror Obtenir le libellé d'un numéro d'erreur  
 #include "../../includes/minishell.h"
 
 int	my_pwd(void)

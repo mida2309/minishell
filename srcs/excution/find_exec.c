@@ -6,14 +6,12 @@
 /*   By: idamouttou <idamouttou@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 23:30:16 by idamouttou        #+#    #+#             */
-/*   Updated: 2021/10/11 15:04:48 by mida             ###   ########.fr       */
+/*   Updated: 2021/10/14 00:04:22 by idamouttou       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
-
 //check etat du fichier
-
 int	is_executable(char *path)
 {
 	struct stat	f;
@@ -23,10 +21,8 @@ int	is_executable(char *path)
 			return (1);
 	return (1);
 }	
-
 //consulte le repertoire
 //check letat et ferme
-
 int	found_binary(char *folder, char *filename, DIR *cur_dir)
 {
 	char			*full_path;
@@ -51,9 +47,7 @@ int	found_binary(char *folder, char *filename, DIR *cur_dir)
 	return (res);
 }
 
-//ouvre le reprtoire et check si il 
-//existe avce found binary et ferme le repertoire
-
+//ouvre le reprtoire et check si il existe avce found binary et ferme le repertoire
 char	*check_path(char *path, char *filename)
 {
 	char			**folders;
@@ -78,7 +72,7 @@ char	*check_path(char *path, char *filename)
 
 //cherche le nom du file si il existe ou pas
 //si presence de / code 127 "command not found"
-
+//cherche le repertory
 char	*find_exec(t_list *env, char *filename)
 {
 	char			*foundpath;
@@ -89,7 +83,7 @@ char	*find_exec(t_list *env, char *filename)
 		env = env->next;
 	if (env == NULL)
 	{
-		printf("minishell: %s: No such file or directory\n", filename);
+		printf("minishell : %s: No such file or directory:\n", filename);
 		return (NULL);
 	}
 	path_copy = ft_strdup(env->content);

@@ -6,7 +6,7 @@
 /*   By: idamouttou <idamouttou@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 23:30:48 by idamouttou        #+#    #+#             */
-/*   Updated: 2021/10/11 15:11:25 by mida             ###   ########.fr       */
+/*   Updated: 2021/10/04 23:31:25 by idamouttou       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,7 @@ char	**listtoarr(t_list *env)
 	}
 	return (envarr);
 }
-
 //check si reportory existe ou command et permission
-
 char	**my_arr_realloc(char **ptr, size_t newsize)
 {
 	char	**res;
@@ -45,9 +43,7 @@ char	**my_arr_realloc(char **ptr, size_t newsize)
 		free_arr(ptr);
 	return (res);
 }
-
 //taille de array malloc 
-
 void	arraddelem(char ***array, char *string)
 {
 	int	arrsize;

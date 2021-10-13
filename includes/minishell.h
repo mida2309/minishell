@@ -6,7 +6,7 @@
 /*   By: idamouttou <idamouttou@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 23:25:56 by idamouttou        #+#    #+#             */
-/*   Updated: 2021/10/04 23:26:25 by idamouttou       ###   ########.fr       */
+/*   Updated: 2021/10/14 00:08:38 by idamouttou       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,31 +39,15 @@
 # include "ast.h"
 # include "env_utils.h"
 # include "sig_handlers.h"
-# include "tokenizer.h"
-# include "tokens.h"
+# include "struct.h"
 
 # define QUOTES 1
 # define DQUOTES 2
+# define WORD 2
+# define REDIR 1
+# define PIPE 0
+# define SEMICOL -1
 
-typedef struct s_dlist {
-	char			*content;
-	struct s_dlist	*next;
-	struct s_dlist	*prev;
-}					t_dlist;
-
-typedef struct s_excd_sig{
-	int		excode;
-	int		signal;
-}			t_excd_sig;
-
-t_excd_sig	g_excd_sig;
-
-typedef struct s_execve {
-	char		*path;
-	int			pid;
-	char		**envarr;
-	char		*relative_case;
-}				t_execve;
 
 char	*handle_two_left(char *str, int redir_fd, t_list *envlist);
 int		check_ast(t_ast *tree);
@@ -78,10 +62,10 @@ char	**free_arr(char **arr);
 char	*ft_quottrim(char *line);
 void	rl_replace_line(char *a, int b);
 char	*replace_envs(char *input, t_list *envlist, int dquot);
-char	*subs_var(char *input, t_list *env);
+//char	*subs_var(char *input, t_list *env);
 
 char	*skip_char(char *str, char sym);
-int		unv_hdn(char *str1, char *str2, char *str3, char *str4);
+//int		unv_hdn(char *str1, char *str2, char *str3, char *str4);
 void	display_prompt(void);
 
 int		parser(char **tokenlist, t_list *env, int enter, char *argv[]);
@@ -93,7 +77,7 @@ int		my_env(t_list *env);
 int		my_unset(char **var, t_list *env);
 int		my_exit(char **tmp);
 char	*find_exec(t_list *env, char *filename);
-void	append(char **string1, char *string2);
+//void	append(char **string1, char *string2);
 char	**my_arr_realloc(char **ptr, size_t newsize);
 char	*split_to_tokens(char *input, char ***arr);
 
@@ -102,9 +86,9 @@ char	*check_path(char *path, char *filename);
 char	*find_exec(t_list *env, char *filename);
 void	error_exit(void);
 
-void	restore_terminal_settings(void);
+//void	restore_terminal_settings(void);
 t_list	*converter(char **envp);
 
 void	arraddelem(char ***array, char *string);
-void	execve_child(t_execve ex, char **args, char *file);
+//void	execve_child(t_execve ex, char **args, char *file);
 #endif

@@ -6,17 +6,12 @@
 /*   By: idamouttou <idamouttou@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 23:24:46 by idamouttou        #+#    #+#             */
-/*   Updated: 2021/10/04 23:26:27 by idamouttou       ###   ########.fr       */
+/*   Updated: 2021/10/14 00:06:07 by idamouttou       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef AST_H
 # define AST_H
-
-# define WORD 2
-# define REDIR 1
-# define PIPE 0
-# define SEMICOL -1
 
 # include "minishell.h"
 
@@ -45,5 +40,4 @@ void	two_right_exec(t_ast *self);
 void	one_right_exec(t_ast *self);
 void	one_left_exec(t_ast *self);
 void	redir_exec(t_ast	*self, t_list *envlist);
-void	semicol_exec(t_ast *node, t_list *envlist);
 #endif

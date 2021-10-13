@@ -6,7 +6,7 @@
 /*   By: idamouttou <idamouttou@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 23:30:59 by idamouttou        #+#    #+#             */
-/*   Updated: 2021/10/11 15:13:09 by mida             ###   ########.fr       */
+/*   Updated: 2021/10/09 03:45:58 by idamouttou       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,7 @@ char	*insert_env(char *input, char *before, char *env_val, char *after)
 	return (res);
 }
 
-//cherche dabord les argument apres env si cest pas ? '' "" > < 0 cherche pour $
-
+//cherche dabord les argument apres ? si =
 char	*env_val_name(char *input, char *ptr, char *after_env, t_list *envlist)
 {
 	char	*env_val;
@@ -52,21 +51,20 @@ char	*env_val_name(char *input, char *ptr, char *after_env, t_list *envlist)
 	if (after_env - ptr != 1)
 	{	
 		env_name = ft_substr(input, (ptr - input + 1), after_env - ptr - 1);
-		env_val = get_env_val(env_name, envlist);
+		env_val = get_env_val(env_name, envlist); // env ?=
 		free(env_name);
 	}
 	else
 		env_val = ft_strdup("$");
 	return (env_val);
 }
-
 //argument apres commande env 
-//env ?s = sort la liste
-//env > = saute une ligne (> avec un argument sinon error)
+//env $? = sort la liste
+//env $> = error arg
 // env ' ou " = error quote
 // env '' ou "" = list avec ou sans argument sauf pour ''
 // 0 = affiche la list
-
+// env $| error
 char	*get_after_env(char *ptr)
 {
 	char	*after_env;

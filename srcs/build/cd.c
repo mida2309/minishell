@@ -6,7 +6,7 @@
 /*   By: idamouttou <idamouttou@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 23:29:10 by idamouttou        #+#    #+#             */
-/*   Updated: 2021/10/06 01:39:44 by idamouttou       ###   ########.fr       */
+/*   Updated: 2021/10/15 19:05:18 by idamouttou       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,6 @@ int	handle_inval_cd(char *path, char *oldpwd)
 	return (1);
 }
 //si cd $= va dans users
-//cd /HOME va dans home
-// cd seul affiche le repertoire courrant
 //getcwd = obtenir le repertoire courant
 //chdir change le repertoire courant
 //change dadrresse de repertoire
@@ -64,14 +62,14 @@ int	my_cd(char **path, t_list *envlist)
 
 	path++;
 	if (*path == NULL)
-		tmp = get_env_val("HOME", envlist);
+		tmp = get_env_val("HOME", envlist);// cd = null va dans HOME
 	else
 		tmp = ft_strdup(*path);
 	tmp = skip_char(tmp, ' ');
 	oldpwd = getcwd(NULL, 0);
 	ch = chdir(tmp);
 	free(tmp);
-	if (ch < 0)
+	if (ch < 0)//si pas de dossier
 		return (handle_inval_cd(*path, oldpwd));
 	change_var(envlist, oldpwd, "OLDPWD");
 	free(oldpwd);

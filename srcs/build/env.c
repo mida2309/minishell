@@ -6,12 +6,12 @@
 /*   By: idamouttou <idamouttou@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 23:29:33 by idamouttou        #+#    #+#             */
-/*   Updated: 2021/10/04 23:31:42 by idamouttou       ###   ########.fr       */
+/*   Updated: 2021/10/15 19:05:20 by idamouttou       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
-
+//affiche la variable denvirronement 
 int	my_env(t_list *env)
 {
 	t_list	*tmp;

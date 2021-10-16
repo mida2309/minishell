@@ -6,7 +6,7 @@
 /*   By: idamouttou <idamouttou@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 23:24:46 by idamouttou        #+#    #+#             */
-/*   Updated: 2021/10/14 00:06:07 by idamouttou       ###   ########.fr       */
+/*   Updated: 2021/10/15 14:46:07 by idamouttou       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 # define AST_H
 
 # include "minishell.h"
-
+//fonction pointeur struc void permet dassigne nimpotr e quel type de pointeur et etre convertie ne specifie que le type de retour
 typedef struct s_ast
 {
 	char			*token;
 	int				prior;
 	int				type;
-	void			(*exec)();
+	void			(*exec)();//declaration dun pointeur de fonction idem qun pointeur classique sauf cest entre parenthese
 	struct s_ast	*left;
 	struct s_ast	*right;
 }					t_ast;

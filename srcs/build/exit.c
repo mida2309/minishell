@@ -6,7 +6,7 @@
 /*   By: idamouttou <idamouttou@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 23:29:40 by idamouttou        #+#    #+#             */
-/*   Updated: 2021/10/05 02:21:52 by idamouttou       ###   ########.fr       */
+/*   Updated: 2021/10/15 19:05:21 by idamouttou       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int	check_number(char *str)
 	}
 	return (1);
 }
+
 //commande exit sans option quit le programm
 //error si non valeur numeric si plusieur valeur numeric
 // touch exit controle d
@@ -39,12 +40,12 @@ int	my_exit(char **tmp)
 			break ;
 		if (*(tmp + 1) != NULL)
 		{
-			ft_putstr_fd("exit: too many arguments\n", 2);
+			ft_putstr_fd("exit: too many arguments\n", 2); //si exit 23 hfdj
 			return (1);
 		}
 		if (!check_number(*tmp))
 		{
-			ft_putstr_fd("exit: non numeric argument\n", 2);
+			ft_putstr_fd("exit: non numeric argument\n", 2); //exit GYifdgh
 			return (1);
 		}
 		ft_putstr_fd("exit\n", 1);

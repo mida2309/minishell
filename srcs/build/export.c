@@ -6,12 +6,12 @@
 /*   By: idamouttou <idamouttou@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 23:29:46 by idamouttou        #+#    #+#             */
-/*   Updated: 2021/10/04 23:31:41 by idamouttou       ###   ########.fr       */
+/*   Updated: 2021/10/15 19:05:23 by idamouttou       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
-// check le egal segm fault si pas fin
+// check le egal 
 //export ida= cree la variable 
 //free content 
 int	export_one(char *varval, t_list *env)
@@ -91,6 +91,7 @@ int	check_export(char **varval)
 	}
 	return (0);
 }
+
 //command expot
 //print sorted check export sans argument et sort la liste des variable
 //check export error valeur numeric ou speciaux
@@ -99,12 +100,12 @@ int	my_export(char **varval, t_list *env)
 {
 	if (varval[1] == NULL)
 	{
-		print_sorted(env);
+		print_sorted(env);//export sort la liste env
 		return (0);
 	}
 	while (*varval != NULL)
 	{
-		if (check_export(varval))
+		if (check_export(varval))//check si apres export chiffre 
 			return (1);
 		export_one(*varval, env);
 		varval++;

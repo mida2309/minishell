@@ -6,7 +6,7 @@
 /*   By: idamouttou <idamouttou@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/04 23:30:11 by idamouttou        #+#    #+#             */
-/*   Updated: 2021/10/14 01:01:38 by idamouttou       ###   ########.fr       */
+/*   Updated: 2021/10/16 19:48:17 by idamouttou       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void	two_left_exec(t_ast *self, t_list *envlist)
 	}
 	free(str);
 	close(redir_fd);
-	redir_fd = open("heredoc", O_RDONLY, S_IRWXU);
+	//redir_fd = open("heredoc", O_RDONLY, S_IRWXU); //si on retire ok pour echo << i << j
 	dup2(redir_fd, 0);
 	close (redir_fd);
 }

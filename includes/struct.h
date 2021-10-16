@@ -6,7 +6,7 @@
 /*   By: idamouttou <idamouttou@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/13 23:45:30 by idamoutto         #+#    #+#             */
-/*   Updated: 2021/10/14 00:08:17 by idamouttou       ###   ########.fr       */
+/*   Updated: 2021/10/16 18:24:01 by idamouttou       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,3 +51,4 @@ typedef struct s_execve {
 	char		*relative_case;
 }				t_execve;
 #endif
+

@@ -32,6 +32,8 @@ To run the shell:
 ## Resources and AI Usage
 This project involved the study of UNIX system calls such as fork, execve, waitpid, and pipe. In accordance with the 42 curriculum guidelines, AI tools were utilized for initial parser design and the generation of test cases. Every AI-generated suggestion was reviewed, tested, and verified against Bash behavior to ensure full technical understanding and compliance with the subject.
 
+********************************************************************************
+
 # Minishell - As Beautiful as a Shell
 
 *Ce projet a été réalisé dans le cadre du cursus 42 par mida.*
